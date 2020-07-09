@@ -1,0 +1,25 @@
+#You are given a sorted array containing only numbers 0 and 1. Find the transition point efficiently. 
+#The transition point is a point where "0" ends and "1" begins (0 based indexing).
+#Note that, if there is no "1" exists, print -1.
+#Note that, in case of all 1s print 0.
+****************************************************************************************************
+
+def transitionPoint(arr, n):
+    #Code here
+    count = 1
+    
+    if(arr.count(1)==n):
+        return 0
+    elif(arr.count(0)==n):
+        return -1
+    else:
+        for i in range(n-1):
+            if(arr[i+1]==1):
+                return count
+            count +=1
+
+t=int(input())
+for i in range(t):
+  n=int(input())
+  arr=list(map(int,input().strip().split()))  
+  print(transitionPoint(arr, n))
